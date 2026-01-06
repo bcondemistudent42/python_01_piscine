@@ -7,12 +7,15 @@ class Plant:
         self.age = age
 
     def grow(self):
-        """A method that increase the size of plant by one"""
-        self.height += 1
+        """A method that increase the size of plant by seven because
+        its a week simulation and we admit that it grows 1cm a day and print
+        the size of how many cm it grows"""
+        self.height += 7
+        print("Growth this week 7cm")
 
     def aging(self):
-        """A method that increase the age of plant by one day"""
-        self.age += 1
+        """A method that increase the age of plant by one week"""
+        self.age += 7
 
     def get_info(self):
         """A method that let u know the status of the plant"""
@@ -25,10 +28,9 @@ if (__name__ == "__main__"):
     flower.grow()
     flower.aging()
     flower.get_info()
-    i = 0
-    while (i < 7):
-        flower.grow()
-        flower.aging()
-        i += 1
-    print("-----After the while loop-----")
-    flower.get_info()
+    flower1 = Plant("Sunflower", 85, 21)
+    print("-----------------------")
+    flower1.get_info()
+    flower1.grow()
+    flower1.aging()
+    flower1.get_info()
