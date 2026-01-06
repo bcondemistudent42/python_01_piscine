@@ -22,8 +22,8 @@ class Plant:
 if (__name__ == "__main__"):
     flower = Plant("Rose", 25, 30)
     flower.get_info()
-    # flower.grow()
-    # flower.aging()
+    flower.grow()
+    flower.aging()
     flower.get_info()
     i = 0
     while (i < 7):
