@@ -52,19 +52,36 @@ class Base_Plant:
 
 
 class Flower(Base_Plant):
+    """Creating a flower, a specialised type of Base_Plant"""
     def __init__(self, name, height, age, color):
+        """A specialised class with a color parameter"""
         super().__init__(name, height, age)
         self.__color = color
 
     def bloom(self):
+        """Make the flower bloom"""
         print(f"{self.get_name()} is blooming beautifully !")
 
     def get_color(self):
+        """Gives the color of the actual flower"""
         return (self.__color)
 
 
-# class Tree(Base_Plant):
-#     def __init__():
+class Tree(Base_Plant):
+    def __init__(self, name, height, age, trunk_diameter):
+        """Creates a Tree, with a base plant plus a diameter"""
+        super().__init__(name, height, age)
+        self.__trunk_diameter = trunk_diameter
+
+    def get_diameter(self):
+        """Gives the diameter of the requested tree"""
+        return (self.__trunk_diameter)
+
+    def produce_shade(self):
+        """Gives the shade """
+        res = (int(self.get_diameter()) * 1.56)
+        print(f"{self.get_name()} provides {int(res)} square meters of shade ")
+
 
 class Factory():
     """A factory class to create a function create plant"""
@@ -76,4 +93,15 @@ class Factory():
 if (__name__ == "__main__"):
     flower = Flower("Rose", 25, 30, "red")
     flower.bloom()
+    flower1 = Flower("Viola", 41, 42, "purple")
+    flower1.bloom()
     print(flower.get_color())
+    print(flower1.get_color())
+    print("=================================")
+    tree = Tree("Oak", 500, 1825, 50)
+    tree1 = Tree("Pin", 900, 2000, 95)
+    tree.get_info()
+    tree.produce_shade()
+    tree1.get_info()
+    tree1.produce_shade()
+    print("=================================")
