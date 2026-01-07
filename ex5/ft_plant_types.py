@@ -1,5 +1,5 @@
 
-class Secure_Plant:
+class Base_Plant:
     def __init__(self, name, height, age):
         """A class for the creation of Plant, with 3 parameters"""
         self.__name = name
@@ -23,12 +23,16 @@ class Secure_Plant:
         print(f"{self.__name}: {self.__height}cm, {self.__age} days old")
 
     def get_height(self):
-        """A method that displays the height of the plant"""
+        """A method that return the height of the plant"""
         return (self.__height)
 
     def get_age(self):
-        """A method that displays the age of the plant"""
+        """A method that return the age of the plant"""
         return (self.__age)
+
+    def get_name(self):
+        """A method that return the name of the flower"""
+        return (self.__name)
 
     def set_height(self, value):
         """A method that allows yout to modify the height of the plant"""
@@ -47,8 +51,29 @@ class Secure_Plant:
         print("Age updated", value, "[OK]")
 
 
+class Flower(Base_Plant):
+    def __init__(self, name, height, age, color):
+        super().__init__(name, height, age)
+        self.__color = color
+
+    def bloom(self):
+        print(f"{self.get_name()} is blooming beautifully !")
+
+    def get_color(self):
+        return (self.__color)
+
+
+# class Tree(Base_Plant):
+#     def __init__():
+
 class Factory():
     """A factory class to create a function create plant"""
     def create_plant(my_data):
         """A create plant function to make a lot of plant"""
-        return (Secure_Plant(my_data[0], my_data[1], my_data[2]))
+        return (Base_Plant(my_data[0], my_data[1], my_data[2]))
+
+
+if (__name__ == "__main__"):
+    flower = Flower("Rose", 25, 30, "red")
+    flower.bloom()
+    print(flower.get_color())
