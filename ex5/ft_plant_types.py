@@ -83,6 +83,23 @@ class Tree(Base_Plant):
         print(f"{self.get_name()} provides {int(res)} square meters of shade ")
 
 
+class Vegetable(Base_Plant):
+    def __init__(self, name, height, age, harvest_season, nutritional_value):
+        super().__init__(name, height, age)
+        self.__harvest_season = harvest_season
+        self.__nutritional_value = nutritional_value
+
+    def get_info(self):
+        name = self.get_name()
+        height = self.get_height()
+        age = self.get_age()
+        print(f"{name}: {height}cm, {age}days, {self.get_harvest()}")
+        print(f"{name} is rich in {self.get_nutritional_value}")
+
+    def get_nutritional_value(self):
+        return (self.__nutritional_value)
+
+
 class Factory():
     """A factory class to create a function create plant"""
     def create_plant(my_data):
