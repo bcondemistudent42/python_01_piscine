@@ -58,6 +58,12 @@ class Flower(Base_Plant):
         super().__init__(name, height, age)
         self.__color = color
 
+    def get_info(self):
+        n = self.get_name()
+        h = self.get_height()
+        a = self.get_age()
+        print(f"{n} (Flower): {h} cm, {a} days, {self.get_color()}")
+
     def bloom(self):
         """Make the flower bloom"""
         print(f"{self.get_name()} is blooming beautifully !")
@@ -72,6 +78,13 @@ class Tree(Base_Plant):
         """Creates a Tree, with a base plant plus a diameter"""
         super().__init__(name, height, age)
         self.__trunk_diameter = trunk_diameter
+
+    def get_info(self):
+        n = self.get_name()
+        h = self.get_height()
+        a = self.get_age()
+        d = "cm diameter"
+        print(f"{n} (Tree): {h} cm, {a} days, {self.get_diameter()} {d}")
 
     def get_diameter(self):
         """Gives the diameter of the requested tree"""
@@ -93,11 +106,14 @@ class Vegetable(Base_Plant):
         name = self.get_name()
         height = self.get_height()
         age = self.get_age()
-        print(f"{name}: {height}cm, {age}days, {self.get_harvest()}")
-        print(f"{name} is rich in {self.get_nutritional_value}")
+        print(f"{name} (Vegetables): {height} cm, {age} days, {self.get_hr()}")
+        print(f"{name} is rich in {self.get_nutritional_value()}")
 
     def get_nutritional_value(self):
         return (self.__nutritional_value)
+
+    def get_hr(self):
+        return (self.__harvest_season)
 
 
 class Factory():
@@ -114,6 +130,8 @@ if (__name__ == "__main__"):
     flower1.bloom()
     print(flower.get_color())
     print(flower1.get_color())
+    flower.get_info()
+    flower1.get_info()
     print("=================================")
     tree = Tree("Oak", 500, 1825, 50)
     tree1 = Tree("Pin", 900, 2000, 95)
@@ -122,3 +140,9 @@ if (__name__ == "__main__"):
     tree1.get_info()
     tree1.produce_shade()
     print("=================================")
+    vege = Vegetable("Tomato", 80, 90, "summer harvest",
+                     "vitamin C")
+    vege1 = Vegetable("Salad", 10, 15, "winter harvest",
+                      "vitamin B")
+    vege.get_info()
+    vege1.get_info()
