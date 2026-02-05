@@ -1,7 +1,9 @@
 
 class Garden_Manager:
     def __init__(self, garden_name):
+        self.__lst = []
         self.__lst.append(garden_name)
+
 
 class Garden:
     def __init__(self, name, flower, flowering, prize):
@@ -15,6 +17,15 @@ class Garden:
 
     def get_name(self):
         print(self.__name)
+
+    def add_flower(self, flower):
+        self.__lst_flower.append(flower)
+
+    def get_flowers(self):
+        i = 0
+        while (i < len(self.__lst_flower)):
+            print(self.__lst_flower[i])
+            i += 1
 
 
 class Base_Plant:
@@ -144,3 +155,5 @@ class Factory():
 if (__name__ == "__main__"):
     test = Garden("Alice", "rose", "white", "purple")
     test.get_name()
+    test.add_flower("violet")
+    test.get_flowers()
