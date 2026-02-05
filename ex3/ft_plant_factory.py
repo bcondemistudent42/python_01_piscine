@@ -1,6 +1,6 @@
 
 class Plant:
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         """A class for the creation of Plant, with 3 parameters"""
         self.name = name
         self.height = height
@@ -38,7 +38,7 @@ if (__name__ == "__main__"):
         ("Sunflower", 80, 45),
         ("Fern", 15, 120)
             ]
-    i = 0
+    i: int = 0
     while (i < 5):
         Factory.create_plant(data[i])
         i += 1

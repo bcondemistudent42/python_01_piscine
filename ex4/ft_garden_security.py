@@ -1,6 +1,6 @@
 
 class Secure_Plant:
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         """A class for the creation of Plant, with 3 parameters"""
         self.__name = name
         self.__height = height
@@ -30,7 +30,7 @@ class Secure_Plant:
         """A method that displays the age of the plant"""
         return (self.__age)
 
-    def set_height(self, value):
+    def set_height(self, value: int):
         """A method that allows yout to modify the height of the plant"""
         if (value < 0):
             print(f"Error Negative Number [{value} < 0]")
@@ -38,7 +38,7 @@ class Secure_Plant:
         self.__height = value
         print("Height updated", value, "[OK]")
 
-    def set_age(self, value):
+    def set_age(self, value: int):
         """A method that allows yout to modify the age of the plant"""
         if (value < 0):
             print(f"Error Negative Number [{value} < 0]")
@@ -55,7 +55,7 @@ class Factory():
 
 
 if (__name__ == "__main__"):
-    flower = Secure_Plant("Rose", 25, 30)
+    flower: Secure_Plant = Secure_Plant("Rose", 25, 30)
     flower.get_info()
     flower.set_height(-421)
     flower.set_age(-21)

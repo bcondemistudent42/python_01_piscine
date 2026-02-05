@@ -1,6 +1,6 @@
 
 class Base_Plant:
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int):
         """A class for the creation of Plant, with 3 parameters"""
         self.__name = name
         self.__height = height
@@ -34,7 +34,7 @@ class Base_Plant:
         """A method that return the name of the flower"""
         return (self.__name)
 
-    def set_height(self, value):
+    def set_height(self, value: int):
         """A method that allows yout to modify the height of the plant"""
         if (value < 0):
             print(f"Error Negative Number [{value} < 0]")
@@ -42,7 +42,7 @@ class Base_Plant:
         self.__height = value
         print("Height updated", value, "[OK]")
 
-    def set_age(self, value):
+    def set_age(self, value: int):
         """A method that allows yout to modify the age of the plant"""
         if (value < 0):
             print(f"Error Negative Number [{value} < 0]")
@@ -53,12 +53,13 @@ class Base_Plant:
 
 class Flower(Base_Plant):
     """Creating a flower, a specialised type of Base_Plant"""
-    def __init__(self, name, height, age, color):
+    def __init__(self, name: str, height: int, age: int, color: str):
         """A specialised class with a color parameter"""
         super().__init__(name, height, age)
         self.__color = color
 
     def get_info(self):
+        """Print info"""
         n = self.get_name()
         h = self.get_height()
         a = self.get_age()
@@ -74,12 +75,14 @@ class Flower(Base_Plant):
 
 
 class Tree(Base_Plant):
-    def __init__(self, name, height, age, trunk_diameter):
+    """Subtype of Plant"""
+    def __init__(self, name: str, height: int, age: int, trunk_diameter: int):
         """Creates a Tree, with a base plant plus a diameter"""
         super().__init__(name, height, age)
         self.__trunk_diameter = trunk_diameter
 
     def get_info(self):
+        """Print info"""
         n = self.get_name()
         h = self.get_height()
         a = self.get_age()
@@ -97,12 +100,14 @@ class Tree(Base_Plant):
 
 
 class Vegetable(Base_Plant):
-    def __init__(self, name, height, age, harvest_season, nutritional_value):
-        super().__init__(name, height, age)
-        self.__harvest_season = harvest_season
-        self.__nutritional_value = nutritional_value
+    """Subtype of Plant"""
+    def __init__(self, nam: str, heit: int, age: int, harv: str, nutri: str):
+        super().__init__(nam, heit, age)
+        self.__harvest_season = harv
+        self.__nutritional_value = nutri
 
     def get_info(self):
+        """Print info"""
         name = self.get_name()
         height = self.get_height()
         age = self.get_age()
@@ -110,9 +115,11 @@ class Vegetable(Base_Plant):
         print(f"{name} is rich in {self.get_nutritional_value()}")
 
     def get_nutritional_value(self):
+        """Print nutritionnal value"""
         return (self.__nutritional_value)
 
     def get_hr(self):
+        """Print harvest season"""
         return (self.__harvest_season)
 
 
@@ -124,7 +131,7 @@ class Factory():
 
 
 if (__name__ == "__main__"):
-    flower = Flower("Rose", 25, 30, "red")
+    flower: Flower = Flower("Rose", 25, 30, "red")
     flower.bloom()
     flower1 = Flower("Viola", 41, 42, "purple")
     flower1.bloom()
