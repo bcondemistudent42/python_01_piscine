@@ -1,11 +1,3 @@
-"""Garden analytics helpers: simple plant and garden classes.
-
-This module contains small example classes used by the tutorial
-exercises: plants, specialized plant types, a garden container and
-basic manager/analytics utilities. Only lightweight docstrings and
-type hints are added here for clarity; no behavioral changes.
-"""
-
 from typing import Tuple, List
 
 
@@ -194,7 +186,7 @@ class GardenManager:
         style method; calling `GardenManager.create_garden_network()`
         constructs and returns a new manager instance.
         """
-        instance: 'GardenManager' = cls() # re bien comprendre
+        instance: 'GardenManager' = cls()
         return instance
 
 
