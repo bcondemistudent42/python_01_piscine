@@ -1,7 +1,7 @@
 from typing import Tuple
 
 
-class Base_Plant:
+class BasePlant:
     def __init__(self, name: str, height: int, age: int) -> None:
         self.__name: str = name
         self.__height: int = height
@@ -52,7 +52,7 @@ class Garden:
         self.__lst_flowering = []
         self.__lst_prize = []
 
-    def add_plant(self, plant: Base_Plant) -> None:
+    def add_plant(self, plant: BasePlant) -> None:
         if (plant.get_type() == "Prize"):
             self.__lst_plant.append(plant)
             self.__lst_flowering.append(plant)
@@ -65,18 +65,41 @@ class Garden:
         self.__lst_plant.append(plant)
 
     def get_name(self) -> None:
-        print(self.__name)
+        return (self.__name)
+
+    def get_plant(self):
+        return (self.__lst_plant)
 
 
-class Garden_Manager:
+class GardenManager:
+    class GardenStats:
+        def __init__(self, lst: list):
+            self.lst = lst
+
+        def get_len(self):
+            print(len(self.lst))
+
+        def get_flower(self, index: int):
+            print(len(self.lst[index].get_plant()))
+
     def __init__(self):
         self.__lst = []
+        self.stats = self.GardenStats(self.__lst)
 
     def add_garden(self, garden: Garden):
         self.__lst.append(garden)
 
+    def get_index(self):
+        i: int = 0
+        for elt in self.__lst:
+            print(f"Garden == {elt.get_name()}, i == {i}")
+            i += 1
 
-class FloweringPlant(Base_Plant):
+    # def create_garden_network(cls) -> 'Garden_Manager':
+    #     return cls()
+
+
+class FloweringPlant(BasePlant):
     def __init__(self, name: str, height: int, age: int):
         super().__init__(name, height, age)
 
@@ -92,7 +115,7 @@ class PrizeFlower(FloweringPlant):
         return "Prize"
 
 
-class Flower(Base_Plant):
+class Flower(BasePlant):
     def __init__(self, name: str, height: int, age: int, color: str) -> None:
         super().__init__(name, height, age)
         self.__color: str = color
@@ -110,7 +133,7 @@ class Flower(Base_Plant):
         return (self.__color)
 
 
-class Tree(Base_Plant):
+class Tree(BasePlant):
     def __init__(self, name: str, height: int, age: int, trunk_diameter: int):
         super().__init__(name, height, age)
         self.__trunk_diameter: int = trunk_diameter
@@ -130,7 +153,7 @@ class Tree(Base_Plant):
         print(f"{self.get_name()} provides {int(res)} square meters of shade ")
 
 
-class Vegetable(Base_Plant):
+class Vegetable(BasePlant):
     def __init__(self, nam: str, heit: int, age: int, harv: str, nut: str):
         super().__init__(nam, heit, age)
         self.__harvest_season: str = harv
@@ -151,21 +174,28 @@ class Vegetable(Base_Plant):
 
 
 class Factory:
-    def create_plant(my_data: Tuple[str, int, int]) -> Base_Plant:
-        return (Base_Plant(my_data[0], my_data[1], my_data[2]))
+    def create_plant(my_data: Tuple[str, int, int]) -> BasePlant:
+        return (BasePlant(my_data[0], my_data[1], my_data[2]))
 
 
 def main() -> None:
-    manager = Garden_Manager()
+    manager = GardenManager()
     garden = Garden("Alice")
+    garden1 = Garden("Robert")
     manager.add_garden(garden)
+    manager.add_garden(garden1)
     plant = FloweringPlant("Rose", 25, 2)
-    plant1 = Base_Plant("Violete", 12, 7)
-    plant2 = PrizeFlower("Black", 21, 12)
+    plant1 = BasePlant("Violete", 12, 7)
+    plant2 = PrizeFlower("Sunflower", 21, 12)
     garden.add_plant(plant)
     garden.add_plant(plant1)
     garden.add_plant(plant2)
-    garden.get_name()
+    garden1.add_plant(plant)
+    garden1.add_plant(plant1)
+    garden1.add_plant(plant2)
+    # garden.get_name()
+    manager.get_index()
+    # manager.stats.get_flower(0)
 
 
 if (__name__ == "__main__"):
