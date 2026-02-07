@@ -1,33 +1,3 @@
-
-class Garden_Manager:
-    def __init__(self, garden_name):
-        self.__lst = []
-        self.__lst.append(garden_name)
-
-
-class Garden:
-    def __init__(self, name, flower, flowering, prize):
-        self.__name = name
-        self.__lst_flower = []
-        self.__lst_flowering = []
-        self.__lst_prize = []
-        self.__lst_flower.append(flower)
-        self.__lst_flowering.append(flowering)
-        self.__lst_prize.append(prize)
-
-    def get_name(self):
-        print(self.__name)
-
-    def add_flower(self, flower):
-        self.__lst_flower.append(flower)
-
-    def get_flowers(self):
-        i = 0
-        while (i < len(self.__lst_flower)):
-            print(self.__lst_flower[i])
-            i += 1
-
-
 class Base_Plant:
     def __init__(self, name: str, height: int, age: int):
         """A class for the creation of Plant, with 3 parameters"""
@@ -88,7 +58,7 @@ class Flower(Base_Plant):
         self.__color = color
 
     def get_info(self):
-        """gives info"""
+        """Print info"""
         n = self.get_name()
         h = self.get_height()
         a = self.get_age()
@@ -111,7 +81,7 @@ class Tree(Base_Plant):
         self.__trunk_diameter = trunk_diameter
 
     def get_info(self):
-        """Gives info"""
+        """Print info"""
         n = self.get_name()
         h = self.get_height()
         a = self.get_age()
@@ -157,10 +127,3 @@ class Factory():
     def create_plant(my_data):
         """A create plant function to make a lot of plant"""
         return (Base_Plant(my_data[0], my_data[1], my_data[2]))
-
-
-if (__name__ == "__main__"):
-    test = Garden("Alice", "rose", "white", "purple")
-    test.get_name()
-    test.add_flower("violet")
-    test.get_flowers()
