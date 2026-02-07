@@ -1,6 +1,10 @@
 class Plant:
-    """
-    Represents a plant with a name, height, and age.
+    """Represents a plant with a name, height, and age.
+
+    Attributes:
+        name: The plant's name.
+        height: Height in centimeters.
+        age: Age in days.
     """
 
     def __init__(self, name: str, height: int, age: int) -> None:

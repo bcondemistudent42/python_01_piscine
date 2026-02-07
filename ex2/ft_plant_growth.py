@@ -1,6 +1,8 @@
 class Plant:
-    """
-    Represents a plant with a name, height, and age.
+    """Represents a plant with a name, height, and age.
+
+    Methods are provided to simulate weekly growth and aging and to
+    print the plant's information.
     """
 
     def __init__(self, name: str, height: int, age: int) -> None:
